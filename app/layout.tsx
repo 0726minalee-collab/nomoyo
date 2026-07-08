@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NOMOYO! | 気持ちと機会をつなぐ合図",
+  title: "NOMOYO! | 「飲もう！」が続く合図。",
   description:
-    "NOMOYO!は、飲みたい気持ちを特別な合図で送り、自然に誘い合える飲みコミュニティアプリです。",
+    "NOMOYO!は、お酒が好きな人同士でつながるクローズドなSNS飲ミュニティ。",
 };
 
 export default function RootLayout({
