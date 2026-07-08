@@ -101,9 +101,9 @@ main {
   display: flex;
   align-items: center;
   gap: clamp(40px, 4.3vw, 86px);
-  padding-right: clamp(0px, 5.8vw, 84px);
+  padding-right: clamp(24px, 8vw, 124px);
   font-family: "Zen Kaku Gothic Antique", sans-serif;
-  font-size: clamp(14px, 1.65vw, 24px);
+  font-size: clamp(15px, 1.8vw, 26px);
   font-weight: 400;
 }
 
@@ -446,6 +446,7 @@ main {
   overflow: visible;
 }
 
+.image-placeholder.has-side-mask,
 .image-placeholder.is-compact-video,
 .image-placeholder.is-large-video {
   overflow: hidden;
@@ -477,14 +478,7 @@ main {
 
 .image-placeholder.has-side-mask::before,
 .image-placeholder.has-side-mask::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  width: 12%;
-  background: var(--yellow);
-  pointer-events: none;
+  display: none;
 }
 
 .image-placeholder.has-side-mask::before {
@@ -505,7 +499,9 @@ main {
 }
 
 .image-placeholder.is-compact-video::after {
-  display: none;
+  display: block;
+  z-index: 2;
+  height: 52px;
 }
 
 .image-placeholder span {
@@ -521,16 +517,17 @@ main {
 }
 
 .image-placeholder.has-side-mask .concept-video {
-  transform: scale(1.18);
+  transform: scale(1.22);
   transform-origin: center;
 }
 
 .image-placeholder.is-clean-left-video .concept-video {
-  transform: translate(1.4%, 0.8%) scale(1.2);
+  transform: translate(1.4%, 0.2%) scale(1.18);
   transform-origin: center;
 }
 
 .image-placeholder.is-compact-video .concept-video {
+  clip-path: inset(0 0 6px 0);
   transform: scale(1.11);
   transform-origin: center;
 }
@@ -942,7 +939,16 @@ main {
   }
 
   .image-placeholder.is-compact-video .concept-video {
+    clip-path: inset(0 0 6px 0);
     transform: scale(1.07);
+  }
+
+  .image-placeholder.has-side-mask::before {
+    width: 8%;
+  }
+
+  .image-placeholder.has-side-mask::after {
+    width: 24%;
   }
 
   .concept-text p {
@@ -1000,7 +1006,7 @@ main {
 
   .nav {
     gap: 14px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .hero {
